@@ -12,13 +12,13 @@ The analysis consists of three sequential stages:
 
 **1. Experimental sensor matrices**
 
-Normalized biomechanical and biochemical measurements are provided as 3 ¡Á 3 sensor matrices in `Normalized_Sensor_Tensors/`.
+Normalized biomechanical and biochemical measurements are provided as 3 x 3 sensor matrices in `Normalized_Sensor_Tensors/`.
 
 **2. Spatial preprocessing**
 
-Before CNN training, each normalized 3 ¡Á 3 sensor matrix was converted into a 96 ¡Á 96 spatial tensor using bicubic interpolation. The resulting processed biomechanical and biochemical tensors are provided in `Skin_Cancer_Dataset/`.
+Before CNN training, each normalized 3 x 3 sensor matrix was converted into a 96 x 96 spatial tensor using bicubic interpolation. The resulting processed biomechanical and biochemical tensors are provided in `Skin_Cancer_Dataset/`.
 
-The CNN training notebook therefore uses the supplied 96 ¡Á 96 tensors directly and does not repeat the bicubic interpolation step.
+The CNN training notebook therefore uses the supplied 96 x 96 tensors directly and does not repeat the bicubic interpolation step.
 
 **3. CNN classification**
 
@@ -26,7 +26,7 @@ The CNN training notebook therefore uses the supplied 96 ¡Á 96 tensors directly 
 
 The workflow can therefore be summarized as:
 
-`3 ¡Á 3 normalized sensor measurements ¡ú bicubic spatial interpolation ¡ú 96 ¡Á 96 tensors ¡ú five-fold CNN cross-validation ¡ú out-of-fold predictions ¡ú ROC/confusion-matrix analysis`
+`3 x 3 normalized sensor measurements -> bicubic spatial interpolation -> 96 x 96 tensors -> five-fold CNN cross-validation -> out-of-fold predictions -> ROC/confusion-matrix analysis`
 
 ## Repository Structure
 
@@ -47,8 +47,7 @@ The workflow can therefore be summarized as:
 |   |-- Ablation_ROC_Probabilities.csv
 |   |-- Bio_tSNE_Coordinates.csv
 |   |-- Mech_tSNE_Coordinates.csv
-|   |-- Fused_tSNE_Coordinates.csv
-|   `-- associated confusion-matrix and figure files
+|   `-- Fused_tSNE_Coordinates.csv
 |
 |-- Source_Code/
 |   |-- 3MP_Multimodal_Pipeline.ipynb
@@ -61,11 +60,11 @@ The workflow can therefore be summarized as:
 
 ### `Normalized_Sensor_Tensors/`
 
-Contains the normalized experimental 3 ¡Á 3 biomechanical and biochemical sensor measurements prior to spatial interpolation.
+Contains the normalized experimental 3 x 3 biomechanical and biochemical sensor measurements prior to spatial interpolation.
 
 ### `Skin_Cancer_Dataset/`
 
-Contains the paired 96 ¡Á 96 biomechanical and biochemical tensors used directly for CNN training and evaluation.
+Contains the paired 96 x 96 biomechanical and biochemical tensors used directly for CNN training and evaluation.
 
 The dataset contains 384 samples distributed among four tissue classes:
 
@@ -86,7 +85,7 @@ These files correspond to the computational results used for the reported public
 
 Primary machine-learning notebook. It:
 
-* loads the supplied 96 ¡Á 96 biomechanical and biochemical tensors;
+* loads the supplied 96 x 96 biomechanical and biochemical tensors;
 * verifies sample pairing, tensor dimensions, and class counts;
 * constructs the attention-based CNN;
 * performs five-fold stratified cross-validation;
@@ -135,7 +134,7 @@ Open:
 Source_Code/3MP_Multimodal_Pipeline.ipynb
 ```
 
-and execute Cells 1¨C3 sequentially.
+and execute Cells 1-3 sequentially.
 
 The data-loading stage should report:
 
@@ -178,8 +177,34 @@ Generated_Figures/
 
 The generated outputs include three confusion matrices, four class-specific ROC plots, and three t-SNE feature-space plots.
 
+A successful run should reproduce the reference classification accuracies:
+
+```text
+Biochemical-only:   60.94%
+Biomechanical-only: 71.61%
+Multimodal fusion:  89.32%
+```
+
 ## Notes
 
-The 96 ¡Á 96 tensors in `Skin_Cancer_Dataset/` are the direct inputs used for CNN training. They were generated from the normalized 3 ¡Á 3 experimental sensor measurements by bicubic spatial interpolation before CNN training.
+The 96 x 96 tensors in `Skin_Cancer_Dataset/` are the direct inputs used for CNN training. They were generated from the normalized 3 x 3 experimental sensor measurements by bicubic spatial interpolation before CNN training.
 
 The `Publication_Results/` directory should be treated as fixed source data corresponding to the manuscript figures. Independent model reruns should be compared against, rather than overwrite, these reference results.
+
+Newly generated model outputs are stored in:
+
+```text
+Reproduced_Results/
+```
+
+and newly generated figures are stored in:
+
+```text
+Generated_Figures/
+```
+
+This separation preserves the original source data used for manuscript figure generation.
+
+## License
+
+Please refer to the `LICENSE` file for licensing information.
