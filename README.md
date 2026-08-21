@@ -32,31 +32,31 @@ The workflow can therefore be summarized as:
 
 ```text
 3MP-Multimodal-Diagnostic-Platform/
-©¦
-©À©¤©¤ Normalized_Sensor_Tensors/
-©¦   ©À©¤©¤ Biochemistry data.xlsx
-©¦   ©¸©¤©¤ Biomechanical data.xlsx
-©¦
-©À©¤©¤ Skin_Cancer_Dataset/
-©¦   ©À©¤©¤ Normal/
-©¦   ©À©¤©¤ Scar/
-©¦   ©À©¤©¤ Inflamed/
-©¦   ©¸©¤©¤ Tumor/
-©¦
-©À©¤©¤ Publication_Results/
-©¦   ©À©¤©¤ Ablation_ROC_Probabilities.csv
-©¦   ©À©¤©¤ Bio_tSNE_Coordinates.csv
-©¦   ©À©¤©¤ Mech_tSNE_Coordinates.csv
-©¦   ©À©¤©¤ Fused_tSNE_Coordinates.csv
-©¦   ©¸©¤©¤ associated confusion-matrix and figure files
-©¦
-©À©¤©¤ Source_Code/
-©¦   ©À©¤©¤ 3MP_Multimodal_Pipeline.ipynb
-©¦   ©¸©¤©¤ Figure_Generator.ipynb
-©¦
-©À©¤©¤ requirement.txt
-©À©¤©¤ LICENSE
-©¸©¤©¤ README.md
+|
+|-- Normalized_Sensor_Tensors/
+|   |-- Biochemistry data.xlsx
+|   `-- Biomechanical data.xlsx
+|
+|-- Skin_Cancer_Dataset/
+|   |-- Normal/
+|   |-- Scar/
+|   |-- Inflamed/
+|   `-- Tumor/
+|
+|-- Publication_Results/
+|   |-- Ablation_ROC_Probabilities.csv
+|   |-- Bio_tSNE_Coordinates.csv
+|   |-- Mech_tSNE_Coordinates.csv
+|   |-- Fused_tSNE_Coordinates.csv
+|   `-- associated confusion-matrix and figure files
+|
+|-- Source_Code/
+|   |-- 3MP_Multimodal_Pipeline.ipynb
+|   `-- Figure_Generator.ipynb
+|
+|-- requirement.txt
+|-- LICENSE
+`-- README.md
 ```
 
 ### `Normalized_Sensor_Tensors/`
