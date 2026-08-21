@@ -14,7 +14,7 @@ The pipeline processes dual-channel (biomechanical and biochemical) spatial matr
 ### /Source_Code
 * **3MP_Multimodal_Pipeline.ipynb:** The primary Jupyter Notebook. It handles the loading of the normalized 3x3 CSVs, executes native bicubic interpolation to generate high-resolution 96x96 spatial tensors, and runs the 5-Fold cross-validation ablation study using the 80-epoch Topographical Attention CNN.
 * **Figure_Generator.ipynb:** A standalone script that ingests the CSVs from `/Publication_Results` to reproduce the exact ROC curves, Confusion Matrices, and t-SNE scatter plots featured in the manuscript as high-resolution vector graphics.
-* **requirements.txt:** Python environment dependencies.
+* **requirement.txt:** Python environment dependencies.
 
 ## System Requirements & Reproducibility
 The codebase was developed and executed in a standard Python 3.10 environment utilizing a T4 GPU (Google Colab).
@@ -27,7 +27,7 @@ Typical installation time on a standard desktop computer is < 5 minutes.
 
 ## Step-by-Step Instructions for Peer Reviewers
 To verify the computational methodology on a local machine, please follow these steps:
-1. Ensure your environment matches the provided `requirements.txt` (Python >= 3.10).
+1. Ensure your environment matches the provided `requirement.txt` (Python >= 3.10).
 2. Open `Source_Code/3MP_Multimodal_Pipeline.ipynb`.
 3. Verify that the `dataset_dir` path in Cell 1 points to the included `/Data/Normalized_Sensor_Tensors` folder.
 4. Execute Cells 1 through 3 sequentially. The script will automatically load the provided spatial matrices, apply global Min-Max normalization, execute the 5-Fold Stratified Cross-Validation, and export the Out-of-Fold probabilities.
